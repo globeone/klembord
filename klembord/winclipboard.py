@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from collections import OrderedDict, ByteString
+from collections.abc import ByteString
 from ctypes import windll, create_unicode_buffer, memmove, c_uint, c_wchar
 from ctypes import c_void_p, c_bool, c_int, c_byte
 
@@ -96,7 +96,7 @@ class WinClipboard(object):
 
 	def get(self, targets):
 
-		content = OrderedDict()
+		content = dict()
 		formats = {}
 		for target in targets:
 			if target == 'TARGETS':
@@ -142,7 +142,7 @@ class WinClipboard(object):
 
 	def set(self, content):
 
-		formats = OrderedDict()
+		formats = dict()
 		for target, data in content.items():
 			if not isinstance(data, (str, ByteString, type(None))):
 				raise TypeError('Unsupported data type:\n{}'.format(repr(data)))

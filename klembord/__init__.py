@@ -16,9 +16,9 @@ Attributes:
 """
 
 import sys
-from collections import OrderedDict, Mapping, ByteString, Sequence
+from collections.abc import Mapping, ByteString, Sequence
 if sys.platform.startswith('win32'):
-	from .winclipboard import WinClipboard
+	from winclipboard import WinClipboard
 	WINDOWS = True
 	LINUX = False
 else:
@@ -100,7 +100,7 @@ class Selection(object):
 				and value is bytes object representing the data.
 				If targets included 'TARGETS', it's value will be a tuple of
 				strings representing available formats/targets.
-				On Linux :class:`dict` is used, on Windows :class:`OrderedDict`
+				On Linux :class:`dict` is used, on Windows :class:`dict`
 				is used instead.
 		"""
 
@@ -195,7 +195,7 @@ class Selection(object):
 				if html:
 					html = html.encode(UTF8)
 					content.append((L_HTML, html))
-			self.set(OrderedDict(content))
+			self.set(dict(content))
 		else:
 			raise TypeError('text or html is not str')
 
@@ -310,7 +310,7 @@ def get(targets):
 			and value is bytes object representing the data.
 			If targets included 'TARGETS', it's value will be a tuple of
 			strings representing available formats/targets.
-			On Linux :class:`dict` is used, on Windows :class:`OrderedDict`
+			On Linux :class:`dict` is used, on Windows :class:`dict`
 			is used instead.
 	"""
 
