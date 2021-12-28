@@ -8,7 +8,7 @@
 If you find this software useful,
 
 please [![Donate](https://d1iczxrky3cnb2.cloudfront.net/button-medium-blue.png)](https://donorbox.org/open-source-support)
-
+to the orginal author of the project OzymandiasTheGreat
 -------------------
 
 ## Install and dependencies
